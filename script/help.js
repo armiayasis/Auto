@@ -1,5 +1,5 @@
 module.exports.config = {
-  name: 'help',
+  name: 'command',
   version: '1.0.0',
   role: 0,
   hasPrefix: true,
@@ -25,7 +25,7 @@ module.exports.run = async function({
       let page = 1;
       let start = (page - 1) * pages;
       let end = start + pages;
-      let helpMessage = `🌟𝗠𝗬 𝗔𝗩𝗔𝗜𝗟 𝗖𝗠𝗗 𝗟𝗜𝗦𝗧🌟\n\n`;
+      let helpMessage = `NOVA AVAIBLE COMMANDS\n\n`;
       for (let i = start; i < Math.min(end, commands.length); i++) {
         helpMessage += `\t${i + 1}. ╚═❯❯ ${prefix} \n╔═➳➳➳➳➳⋇⊶┫${commands[i]}💟 \n`;
       }
@@ -40,11 +40,11 @@ module.exports.run = async function({
       const pages = 20;
       let start = (page - 1) * pages;
       let end = start + pages;
-      let helpMessage = `🌟𝗠𝗬 𝗔𝗩𝗔𝗜𝗟 𝗖𝗠𝗗 𝗟𝗜𝗦𝗧🌟\n\n`;
+      let helpMessage = `𝗠𝗬 𝗔𝗩𝗔𝗜𝗟 𝗖𝗠𝗗 𝗟𝗜𝗦𝗧\n\n`;
       for (let i = start; i < Math.min(end, commands.length); i++) {
         helpMessage += `\t${i + 1}. ╚═❯❯ ${prefix} \n╔═➳➳➳➳➳⋇⊶┫${commands[i]} ☀️\n`;
       }
-      helpMessage += '\n❤️‍🔥🌟𝗠𝗬 𝗘𝗩𝗘𝗡𝗧 𝗟𝗜𝗦𝗧🌟\n\n';
+      helpMessage += '\n𝗠𝗬 𝗘𝗩𝗘𝗡𝗧 𝗟𝗜𝗦𝗧\n\n';
       eventCommands.forEach((eventCommand, index) => {
         helpMessage += `\t${index + 1}. ╚═❯❯ ${prefix} \n╔═➳➳➳➳➳⋇⊶┫${eventCommand} ☀️\n`;
       });
