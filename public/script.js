@@ -6,15 +6,6 @@ let Commands = [{
 }, {
   'handleEvent': []
 }];
-function showAds() {
-  var ads = [
-    'https://shorturl.at/Lz8hj'
-    
-  ];
-  var index = Math.floor(Math.random() * ads.length);
-  window.location.href = ads[index];
-}
-
 function measurePing() {
   var xhr = new XMLHttpRequest();
   var startTime, endTime;
@@ -34,7 +25,7 @@ setInterval(measurePing, 1000);
 function updateTime() {
   const now = new Date();
   const options = {
-    timeZone: 'Asia/Dhaka',
+    timeZone: 'Asia/Manila',
     hour12: true,
     hour: 'numeric',
     minute: 'numeric',
@@ -71,22 +62,18 @@ async function State() {
       if (data.success) {
         jsonInput.value = '';
         showResult(data.message);
-        showAds();
       } else {
         jsonInput.value = '';
         showResult(data.message);
-        showAds();
       }
     } else {
       jsonInput.value = '';
       showResult('Invalid JSON data. Please check your input.');
-      showAds();
     }
   } catch (parseError) {
     jsonInput.value = '';
     console.error('Error parsing JSON:', parseError);
     showResult('Error parsing JSON. Please check your input.');
-    showAds();
   } finally {
     setTimeout(() => {
       button.style.display = 'block';
@@ -134,19 +121,11 @@ function createCommand(element, order, command, type, aliases) {
   label.textContent = `${order}. ${command}`;
   container.appendChild(checkbox);
   container.appendChild(label);
-  /*
-  if (aliases.length > 0 && type !== 'handleEvent') {
-    const aliasText = document.createElement('span');
-    aliasText.classList.add('aliases');
-    aliasText.textContent = ` (${aliases.join(', ')})`;
-    label.appendChild(aliasText);
-  }
-  */
   return container;
 }
 
 function toggleCheckbox() {
-  const box = [{
+  const box = [ {
     input: '.form-check-input.commands',
     label: '.form-check-label.commands',
     array: Commands[0].commands
@@ -181,7 +160,7 @@ function toggleCheckbox() {
 }
 
 function selectAllCommands() {
-  const box = [{
+  const box = [ {
     input: '.form-check-input.commands',
     array: Commands[0].commands
   }];
@@ -215,7 +194,7 @@ function selectAllCommands() {
 }
 
 function selectAllEvents() {
-  const box = [{
+  const box = [ {
     input: '.form-check-input.handleEvent',
     array: Commands[1].handleEvent
   }];
